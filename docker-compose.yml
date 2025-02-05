@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    container_name: final-app-1
+    networks:
+      - final_app_network
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-3b4d9dc2-housing-6116.k.aivencloud.com:12063/property_app?useSSL=true&requireSSL=true
+      SPRING_DATASOURCE_USERNAME: avnadmin
+      SPRING_DATASOURCE_PASSWORD: AVNS_DUmo6hZMqR2h1PVeIcH
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+networks:
+  final_app_network:
+    driver: bridge
