@@ -1,4 +1,3 @@
-# final-main
 # Property App
 
 ## Overview
@@ -27,22 +26,74 @@ The backend is deployed on **Render** and can be accessed via the following endp
 
 ### 1. **User APIs**
 
- **POST** `/api/auth/signup`
+- **POST** `/api/auth/signup`  
   - URL: `https://final-main-1-3mad.onrender.com/api/auth/signup`
-  **POST** `/api/auth/login`
-  - URL: `https://final-main-1-3mad.onrender.com/api/auth/login`
-  - # 2. **Property APIs**
+  - Request Body:
+    ```json
+    {
+      "username": "string",
+      "email": "string",
+      "password": "string"
+    }
+    ```
 
-- **GET** `/properties?page=0&size=9`
-  - URL: `https://final-main-1-3mad.onrender.com/properties?page=0&size=9`
- **POST** `/properties/add`
-  - URL: `https://final-main-1-3mad.onrender.com/properties/add`
-     **GET** `/properties/{id}`
-  - URL: `https://final-main-1-3mad.onrender.com/properties/{id}`
-  - **GET** `/properties/all`
-  - URL: `https://final-main-1-3mad.onrender.com/properties/all`
-    **PUT** `/properties/{id}`
-  - URL: `https://final-main-1-3mad.onrender.com/properties/{id}`
-  **DELETE** `/properties/{id}`
-  - URL: `https://final-main-1-3mad.onrender.com/properties/{id}`
-  
+- **POST** `/api/auth/login`  
+  - URL: `https://final-main-1-3mad.onrender.com/api/auth/login`
+  - Request Body:
+    ```json
+    {
+      "username": "string",
+      "password": "string"
+    }
+    ```
+
+### 2. **Property APIs**
+
+- **GET** `/properties?page=0&size=9`  
+  - URL: `https://final-main-1-3mad.onrender.com/properties?page=0&size=9`  
+  - Description: Retrieves a paginated list of properties.
+
+- **POST** `/properties/add`  
+  - URL: `https://final-main-1-3mad.onrender.com/properties/add`  
+  - Request Body:
+    ```json
+    {
+      "title": "string",
+      "address": "string",
+      "description": "string",
+      "price": "number",
+      "bhks": "number",
+      "available_date": "YYYY-MM-DD",
+      "amenities": "string"
+    }
+    ```
+
+- **GET** `/properties/{id}`  
+  - URL: `https://final-main-1-3mad.onrender.com/properties/{id}`  
+  - Description: Retrieves a specific property by ID.
+
+- **GET** `/properties/all`  
+  - URL: `https://final-main-1-3mad.onrender.com/properties/all`  
+  - Description: Retrieves all properties.
+
+- **PUT** `/properties/{id}`  
+  - URL: `https://final-main-1-3mad.onrender.com/properties/{id}`  
+  - Request Body:
+    ```json
+    {
+      "title": "string",
+      "address": "string",
+      "description": "string",
+      "price": "number",
+      "bhks": "number",
+      "available_date": "YYYY-MM-DD",
+      "amenities": "string"
+    }
+    ```
+
+- **DELETE** `/properties/{id}`  
+  - URL: `https://final-main-1-3mad.onrender.com/properties/{id}`  
+  - Description: Deletes a property by ID.
+
+
+
