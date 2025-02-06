@@ -26,8 +26,8 @@ The backend is deployed on **Render** and can be accessed via the following endp
 
 ### 1. **User APIs**
 
-- **POST** `/api/auth/signup`  
-  - URL: `https://final-main-1-3mad.onrender.com/api/auth/signup`
+- **POST** `/auth/signup`  
+  - URL: `https://final-main-1-3mad.onrender.com/auth/signup`
   - Request Body:
     ```json
     {
@@ -38,7 +38,7 @@ The backend is deployed on **Render** and can be accessed via the following endp
     ```
 
 - **POST** `/api/auth/login`  
-  - URL: `https://final-main-1-3mad.onrender.com/api/auth/login`
+  - URL: `https://final-main-1-3mad.onrender.com/auth/login`
   - Request Body:
     ```json
     {
