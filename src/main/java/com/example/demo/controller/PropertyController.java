@@ -209,6 +209,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -234,9 +235,6 @@ public class PropertyController {
         return (header != null && header.startsWith("Bearer ")) ? header.substring(7) : null;
     }
 
-    /**
-     * ✅ Fetch all properties (Cache result)
-     */
 
 
     @GetMapping("/all")
@@ -283,6 +281,15 @@ public class PropertyController {
     public ResponseEntity<Void> deleteProperty(@PathVariable Long id) {
         propertyService.deleteProperty(id);
         return ResponseEntity.noContent().build();
+    }
+
+
+
+
+    @GetMapping
+    @Cacheable(value = "paginatedProperties", key = "#page + '-' + #size")
+    public Page<Property> getProperties(@RequestParam int page, @RequestParam int size) {
+        return propertyService.getProperties(page, size);
     }
 
     /**
